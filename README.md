@@ -21,9 +21,10 @@ This tutorial was made using Mac iOS Mojave v 10.14.5. The following software an
 - [Atom text editor](https://atom.io/)--version 1.37.0 used
 - [Firefox](https://www.mozilla.org/en-US/firefox/new/) and/or [Chrome](https://www.google.com/chrome/) web browsers--I like viewing and testing the map in multiple browsers
 
-## Create a GitHub repository
-This tutorial uses git and GitHub mostly through the desktop and the online interface rather than the command line. All steps for creating new repositories, publishing, and pushing changes are possible in Terminal or a command line tool, too. See the [GitHub Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf) for the commands.
+## A gentle introduction to GitHub
+This tutorial uses git and GitHub mostly through the desktop and the online interface rather than the command line. All steps for creating new repositories, publishing, and pushing changes are possible in Terminal or a command line tool, too, and are recommended to use over the Desktop app. See the [GitHub Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf) for the commands.
 
+### Create a GitHub repository
 1. Go to [github.com](https://github.com/) and login. Create a new account if needed.
 
 2. Next to **Repositories** click **New** to create a new repository. Provide a name at a minimum. Fill out the information. A license is not required, but you can enter a [Creative Commons](https://creativecommons.org/) if you would like.
@@ -35,6 +36,30 @@ This tutorial uses git and GitHub mostly through the desktop and the online inte
   ![Image is a screenshot of the Quick setup section in GitHub](imagesDOC/setUpDesktop.png "Set up in Desktop")
 
 4. Make sure the local desktop path looks correct, i.e., somewhere you will remember, and click **clone**.
+
+### Create gh-pages
+1. Once the new repository is created, click **Current Branch**, which is between Current Repository and Push origin. The current branch probably says master.
+
+  ![Image is a screenshot showing the Current Branch button.](imagesDOC/currentBranch.png "Current branch is master")
+
+2. Click **New Branch**.
+
+  ![Image is a screenshot highlighting the New Branch button.](imagesDOC/newBranch.png "Create a new branch")
+
+3. Name the new branch **gh-pages**. The branch **must** be named gh-pages. Naming a branch gh-pages tells GitHub that the branch should function as [GitHub Pages](https://help.github.com/en/articles/what-is-github-pages), GitHub's hosting services.
+
+  ![Image is a screenshot highlighting the new branch name gh-pages.](imagesDOC/ghPages.png "Create GitHub Pages")
+
+4. Click **Create Branch**.
+
+5. Click **Publish branch**.
+
+6. Once you publish something to the gh-pages branch, you can see it at the branch's GitHub Pages site at YourGitHubAccount.github.io/gitRepositoryName/webapp.
+  - YourGitHubAccount = replace with your GitHub account named
+  - .github.io/ = keep as is
+  - gitRepositoryName = input the git repository name such as 2019_oslo
+  - webapp = this is the where an index.html file or something to display online lives. In this workshop it is the folder that originally had the long qgis2web title and was changed to webapp in the section **Editing qgis2web index.html file**
+  - For example a gh-pages link would like [taylorhixson.github.io/WF/webapp](https://taylorhixson.github.io/WF/webapp/#1/0/-4)
 
 ## Working with QGIS
 **Note**: If downloading QGIS3 for the first time on a Mac, [watch this video](https://www.youtube.com/watch?v=908NyL7roFs). It is not a one-click install on Mac.
@@ -365,7 +390,7 @@ googleHybrid;
   - Was a colon or curly bracket accidentally deleted?
   - Were all variable names changed if choosing a new basemap?
 
-### Push changes to GitHub
+## Push changes to GitHub
 1. Open GitHub Desktop.
 
 2. From the top left, make sure the current repository is the one with all of the data and Leaflet files.
@@ -379,30 +404,6 @@ googleHybrid;
 4. In the top right, click **Push origin**.
 
   ![Image is a screenshot showing the Push origin button in Github Desktop.](imagesDOC/push.png "Push origin")
-
-### Create gh-pages
-1. Once everything is uploaded, or *pushed*, to GitHub, click **Current Branch**, which is between Current Repository and Push origin. The current branch probably says master.
-
-  ![Image is a screenshot showing the Current Branch button.](imagesDOC/currentBranch.png "Current branch is master")
-
-2. Click **New Branch**.
-
-  ![Image is a screenshot highlighting the New Branch button.](imagesDOC/newBranch.png "Create a new branch")
-
-3. Name the new branch **gh-pages**. The branch **must** be named gh-pages. Naming a branch gh-pages tells GitHub that the branch should function as [GitHub Pages](https://help.github.com/en/articles/what-is-github-pages), GitHub's hosting services.
-
-  ![Image is a screenshot highlighting the new branch name gh-pages.](imagesDOC/ghPages.png "Create GitHub Pages")
-
-4. Click **Create Branch**.
-
-5. Click **Publish branch**.
-
-6. Now you can see the map at the branch's GitHub Pages site at YourGitHubAccount.github.io/gitRepositoryName/webapp.
-  - YourGitHubAccount = replace with your GitHub account named
-  - .github.io/ = keep as is
-  - gitRepositoryName = input the git repository name such as 2019_oslo
-  - webapp = this is the folder that originally had the long qgis2web title and was changed to webapp in the section **Editing qgis2web index.html file**
-  - For example a gh-pages link would like [havemaps.github.io/2019_oslo/webapp](https://havemaps.github.io/2019_oslo/webapp/#13/59.9096/10.7292)
 
 ## Integrating with a website
 The simplest way to embed the Leaflet map into a website is with an iframe. This may or may not be possible depending on the content management system being used. If you do not have a website, try creating a [Jekyll blog](https://jekyllrb.com/) that integrates with Github Pages. **Note**: This has not been tested by the tutorial author, but there is a [good Jekyll tutorial](https://devblast.com/b/create-a-static-websiteblog-with-jekyll-and-github-pages).
@@ -428,11 +429,11 @@ This option may work with some content management systems, self-hosted websites,
 
 4. Between the **iframe src= quotation marks**, paste the link to the **GitHub Pages** (gh-pages branch) for the project repository. It should look like https://YourGitHubAccount.github.io/repoName/webapp.
 
-5. Between the width and height quotations, set the width and height of the map. For example, the final html might look like: `<iframe src="https://havemaps.github.io/2019_oslo/webapp" width="800" height="400"></iframe>`. Also try adding scrolling="no". This may not work for all content management systems.
+5. Between the width and height quotations, set the width and height of the map. For example, the final html might look like: `<iframe src="https://taylorhixson.github.io/WF/webapp" width="800" height="400"></iframe>`. Also try adding scrolling="no". This may not work for all content management systems.
 
 6. Click Preview to check out how it appears.
 
-## Map text description
+### Map text description
 
 Maps are great! However, they may not be accessible to all users for reasons ranging from low-internet connectivity, incompatibility with a screenreader and/or keyboard-only navigation, vision impairment, and neurological differences.
 
@@ -440,11 +441,9 @@ Wherever the map is hosted, include a thorough text description. It is even poss
 
 For example, if the map is of places, make an effort to provide a narrative or list that describes the places in the order they were visited. A thorough text description aims to give an equivalent experience to all users.
 
-Find live examples of map text descriptions on [my About page](https://havemapswilltravel.com/about) (click Expand text description) and all of my posts such as [Musandam 2019](https://havemapswilltravel.com/2019/05/15/20190404-musandam/).
-
 ## Bonus materials on image processing
 ### Resize images
-If not using any images in the map popup, skip the following sections. These instructions are for Mac. The command may or may not be compatible with other operating systems.
+These instructions are for Mac. The commands may or may not be compatible with other operating systems.
 1. Load photos to computer. I take photos with an iPhone, so I use AirDrop.
 
 2. In the git repository for the project, create a **new folder** titled **images**.
