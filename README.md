@@ -326,6 +326,10 @@ overflow-y: scroll;
 ```
   ![Image is a screenshot showing where to paste the customized popup code in line 23 after the closed curly bracket](imagesDOC/popupCode.png "Paste the customized popup code")
 
+7. (Optional) To remove the scroll bar from the map itself, paste `overflow-y: scroll` in the #map class, which should be on or around line 20.
+
+   ![Image is a screenshot showing the code pasted in the map class in line 25](imagesDOC/mapScroll.png "Remove map scroll")
+
 8. (Optional) Use command + F to find `marker`.
 
   ![Image is a screenshot showing where to find the point markers](imagesDOC/marker.png "Change the markers")
@@ -442,34 +446,68 @@ Wherever the map is hosted, include a thorough text description. It is even poss
 For example, if the map is of places, make an effort to provide a narrative or list that describes the places in the order they were visited. A thorough text description aims to give an equivalent experience to all users.
 
 ## Bonus materials on image processing
-### Resize images
-These instructions are for Mac. The commands may or may not be compatible with other operating systems.
-1. Load photos to computer. I take photos with an iPhone, so I use AirDrop.
+### Reformat images
+The images I downloaded from the database for this workshop came in PDF format. For web viewing a thumbnail within the map popups, I thought a .png file was more appropriate. To reformat images use the following commands. These instructions are for Mac. The commands may or may not be compatible with other operating systems.
 
-2. In the git repository for the project, create a **new folder** titled **images**.
+1.  **Copy** photos into a new folder in the git repository for this project. Make sure to **COPY** the images or have a backup of the original in case any errors occur.
 
-3. **Copy** photos into git repository folder titled images. Make sure to **COPY** the images or have a backup because these images will be resized.
-
-4. (Optional) Rename the photos to something simpler or more systematic to make it easier to link them with the corresponding places in a later step.
-
-5. Open **Terminal**. If you are not sure where Terminal is, type Terminal into Mac's spotlight.
+2. **Skip to step 4** if you already know how to open and navigate within Terminal.
+Open **Terminal**. If you are not sure where Terminal is, type Terminal into Mac's spotlight.
 
   ![Image is a screenshot of searching for Terminal in Mac's spotlight](imagesDOC/terminal.png "Terminal in Spotlight")
 
-6. Change the directory using the command `cd` (change directory) to the git repository with the images. For example, use a relative file path like:
+3. Navigate to the git repository folder with the images using the command `cd` (change directory). For example, use a relative file path like:
 
   ```
-  cd git/2019_oslo/images
+  cd ~/git/WF/images
   ```
   - If you are uncertain of the relative path or how to use it, use the `cd` (change directory) command through each subfolder to get to the images directory:
 
   ```
   cd git
-  cd 2019_oslo
+  cd WF
   cd images
   ```
 
-7. Once Terminal shows that it is in the correct directory for the images for this project, use the following code to resize **all images to 300 pixels**, or the desired size:
+  4. Once in the directory, to batch reformat all the **files** into **PNGs** use the following command in Terminal:
+
+  ```
+  for i in *; do sips -s format png $i --out $i.png; done
+  ```
+
+  The above will reformat all files in the directory, so if you have varied types in the folder such as PDFs and TIFFs that you want to turn into PNGs, this _should_ still work.  
+
+  Alternatively, reformat a single image using the following. **Note**: replace the input and output file names and file types with your own.
+
+  ```sips -s format png 1873.pdf --out 1873.png
+  ```
+
+### Resize images
+These instructions are for Mac. The commands may or may not be compatible with other operating systems.
+
+1. **Copy** photos into a new git repository folder titled images_small. Make sure to **COPY** the images or have a backup because these images will be resized.
+
+2. (Optional) Rename the photos to something simpler or more systematic to make it easier to link them with the corresponding places in a later step.
+
+3. **Skip to step 4** if you already know how to open and navigate within Terminal.
+Open **Terminal**. If you are not sure where Terminal is, type Terminal into Mac's spotlight.
+
+  ![Image is a screenshot of searching for Terminal in Mac's spotlight](imagesDOC/terminal.png "Terminal in Spotlight")
+
+4. Change the directory using the command `cd` (change directory) to the git repository with the images. For example, use a relative file path like:
+
+  ```
+  cd git/WF/images
+  ```
+  - If you are uncertain of the relative path or how to use it, use the `cd` (change directory) command through each subfolder to get to the images directory:
+
+  ```
+  cd git
+  cd WF
+  cd images
+  ```
+
+5. Once Terminal shows that it is in the correct directory for the images for this project, use the following code to resize **all images to 300 pixels**, or the desired size:
 
   ```
   sips -Z 300 *.jpg
@@ -479,25 +517,8 @@ These instructions are for Mac. The commands may or may not be compatible with o
   - If your files are **not .jpg**, change it to **.tiff, .png, etc.**
   - The code above is **case sensitive.** Meaning, sometimes I need to run this **twice** because the file type of some images are **.JPG** and not **.jpg**.
 
-### Publish and push images to GitHub
-8. Open GitHub Desktop.
-
-  - If not already selected, select the project repository from the top left.
-  - Notice in the changes on the left side that the relative path for all images added are listed.
-  - (Optional for Mac) I like to delete or set up a .gitignore for the .DS_Store files because it is not necessary. In GitHub Desktop, right click the .DS_Store file for either of these options.
-
-
-9. At the bottom of the column on the left, type in a summary such as initial commit. If working with others on this project, it is usually good to add a more detailed description.
-
-10. Click **Commit to master**.
-
-  ![Image is a screenshot highlighting using GitHub desktop to make commits](imagesDOC/initialCommit.png "initial commit to repository")
-
-11. This is probably the first thing added to the repository, so click **Publish branch** in the top right. After publishing, in the future the box will say either Fetch origin or Push origin. Depending on how many images are in the folder and their size or how many changes were made to the repository, this can take a few moments. If it is taking a very long time, it may be because the images were not resized.
-
-    ![Image is a screenshot of the Publish Branch button in GitHub Desktop](imagesDOC/publish.png "Publish this branch to GitHub")
-
 ### Create html image links
+Format a column in html so that the photo will show up in the map popup. If you resized the image and want to link back to the original or larger format, create to columns: one with the image link to the large format one, and one with the html formatted image link to the resized image as shown how to format below.
 1. Go to [GitHub.com](https://github.com), and go to the project repository.
 
 2. Click the **images** folder.
