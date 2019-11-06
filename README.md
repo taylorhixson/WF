@@ -295,6 +295,7 @@ The point of using qgis2web instead of immediately starting with Leaflet is that
 
   ![Image is a screenshot demonstrating how to open the file with Atom](imagesDOC/openAtom.png "Open the html file with Atom")
 
+
   - As changes are made in the following steps, use command + S or File>Save to save edits.
   - Periodically refresh the browser window with the map that is open to see the changes.
   - If the for any reason the map disappears, troubleshoot the code in index.html file by using command + z to undo any previous changes (command + shift + z is redo). Check to see: was a colon or curly bracket accidentally deleted? If a variable was changed, were all variable names in the file updated and spelled correctly?
@@ -484,7 +485,7 @@ Open **Terminal**. If you are not sure where Terminal is, type Terminal into Mac
   ```sips -s format png 1873.pdf --out 1873.png
   ```
 
-  
+
 ### Resize images
 These instructions are for Mac. The commands may or may not be compatible with other operating systems.
 
