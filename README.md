@@ -1,3 +1,4 @@
+<a id="top"></a>
 # Creating, hosting, and publishing Leaflet maps with qgis2web and GitHub
 ## Contents
 1. [Getting Started](#start)
@@ -20,8 +21,8 @@ Using a free and open-source tool that gives access to source code ensures that 
 
 You can choose to host a Leaflet map on any platform, but this tutorial uses GitHub. GitHub is free and easy to use for sharing code, working on digital projects, and hosting html documents and images, which this tutorial makes use of.
 
-### Software
-This tutorial was made using Mac iOS Mojave v 10.14.5. The following software and accounts are used and should be installed and/or created before beginning:
+### Software and accounts
+This tutorial was made using Mac iOS Mojave v 10.14.5. The following software and accounts are used and are required **before** going further:
 
 - [GitHub account](https://github.com/)
 - [QGIS3](https://qgis.org/en/site/forusers/download.html)--3.4.7-Madeira used, [video for Mac install assistance](https://www.youtube.com/watch?v=908NyL7roFs)
@@ -32,21 +33,28 @@ This tutorial was made using Mac iOS Mojave v 10.14.5. The following software an
 ## A gentle introduction to GitHub
 This tutorial uses git and GitHub mostly through the desktop and the online interface rather than the command line. All steps for creating new repositories, publishing, and pushing changes are possible in Terminal or a command line tool, too, and are recommended to use over the Desktop app. See the [GitHub Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf) for the commands.
 
-### Create a GitHub repository
+### Fork this repository and clone to GitHub Desktop
 1. Go to [github.com](https://github.com/) and login. Create a new account if needed.
 
-2. Next to **Repositories** click **New** to create a new repository. Provide a name at a minimum. Fill out the information. A license is not required, but you can enter a [Creative Commons](https://creativecommons.org/) if you would like.
+2. Go the repository for this workshop: [github.com/taylorhixson/WF](https://github.com/taylorhixson/WF)
 
-  ![Image is a screenshot highlighting the New button in GitHub](imagesDOC/newRepo.png "Create repository")
+3. In the top right of the repository, click **Fork**.
 
-3. Under **Quick setup**, click the button beneath it for **Set up in Desktop**. If a window appears in the browser asking how to open it, choose the option **Open GitHub Desktop.app**.
+  ![Image is a screenshot of the top right of the repository in GitHub showing the Watch, Star, and Fork options with Fork outlined in red](imagesDOC/fork.png "Fork this repository")
 
-  ![Image is a screenshot of the Quick setup section in GitHub](imagesDOC/setUpDesktop.png "Set up in Desktop")
+4. Once the repository is forked, it will show up in your repositories. If needed click your profile avatar in the top right and choose **Your repositories**. If the repository was forked correctly, a repository called **WF** should appear.
 
-4. Make sure the local desktop path looks correct, i.e., somewhere you will remember, and click **clone**.
+5. In the **WF** repository, click **Clone or download**, and from that popup, choose **Open in Desktop**. Make sure the link shows your GitHub username **NOT** the workshop creator's username. The below screenshot shows the creator's because the screenshot was taken from her account.
+  ![Image is a screenshot of the middle right of the repository options in GitHub showing the Create new file, Upload files, Find files, and Clone or download options with Clone or download outlined in red](imagesDOC/clone.png "Clone this repository")
+
+  If the browser prompts you, choose **Open GitHub Desktop**.
+
+  ![Image is a screenshot of a browser prompt asking "Open GitHub Desktop with options to cancel or open."](imagesDOC/openDesktop.png "Open GitHub Desktop")
+
+6. Navigate to where you save git repositories. If this is your first one or you don't have a primary git folder, just use the default.
 
 ### Create gh-pages
-1. Once the new repository is created, click **Current Branch**, which is between Current Repository and Push origin. The current branch probably says master.
+1. Once the repository is cloned, click **Current Branch**, which is between Current Repository and Push origin. The current branch probably says master.
 
   ![Image is a screenshot showing the Current Branch button.](imagesDOC/currentBranch.png "Current branch is master")
 
@@ -564,3 +572,5 @@ Format a column in html so that the photo will show up in the map popup. If you 
 14. Now, there are a few options for how to integrate the image links:
   - **Concatenate** the Description column and the column with the final image links. If doing this, add a html manual line break `<br>` in the concatenate formula. This will NOT show the line break immediately, but the break **should** appear in the final map.
   - In the column with the final image links, add the column title **Image**.
+
+[Return to top](#top)
