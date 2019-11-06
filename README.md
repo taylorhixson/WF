@@ -168,7 +168,7 @@ Now, the data in the CSV needs to be **reprojected** to match the OpenStreetMap 
 
 5. Close the Reproject Layer window when the Log tab shows the layer was reprojected successfully by displaying the message **"Algorithm 'Reproject Layer' finished"**
 
-6. **Remove all layers** from the Layers panel by right clicking them and choosing Remove Layer or highlighting layers and clicking the Remove icon in the Layers panel.
+6. **Remove all layers** from the Layers panel by right clicking the layer and choosing Remove Layer, highlighting layers and clicking the Remove icon in the Layers panel, **OR** pressing `command + D` on the keyboard.
 
   ![Image is a screenshot showing the remove layer icon in the layers panel](imagesDOC/remove.png "Remove all the old layers")
 
@@ -176,13 +176,13 @@ Now, the data in the CSV needs to be **reprojected** to match the OpenStreetMap 
 
   ![Image is a screenshot showing the points appearing in the workspace](imagesDOC/points.png "Places should appear in the workspace")
 
-8. Double click the layer to open the Layer Properties window. Click the **Information** tab to make sure next to CRS is EPSG:3857. If it is close the window.
+8. In the **Layers Panel** double click the wf geojson layer to open the **Layer Properties window**. Click the **Information** tab to make sure next to **CRS** is **EPSG:3857**. If it is close the window.
 
-9. Double check the project CRS by looking in the bottom right of QGIS. It should show EPSG:3857. If it does not click, whatever EPSG code is there, search for 3857 in the pop up, select it, and click OK.
+9. Double check the project CRS by looking in the bottom right of QGIS. It should show EPSG:3857. If it does not click whatever EPSG code is there, and search for 3857 in the pop up, select it, and click OK.
 
   ![Image is a screenshot showing the current project projection of EPSG 3857](imagesDOC/projCRS.png "Project CRS")
 
-10. Click Web>QuickMapServices>OpenStreetMap>OSMStandard.
+10. From the top-level toolbar, click Web > QuickMapServices > OpenStreetMap > OSMStandard.
 
   ![Image is a screenshot showing the location of the basemap options](imagesDOC/basemap.png "OpenStreetMap Basemap")
 
@@ -208,15 +208,13 @@ Now that a spatial data file (GeoJSON) was created, there is no need for the lat
 
   ![Image is a screenshot showing the location to delete attributes option](imagesDOC/delete.png "Delete empty attributes")
 
-5. In the window that appears, click the following columns to select them for deletion:
-    - Latitude
-    - Longitude
+5. In the window that appears, click the following columns to select the Latitude and Longitude columns in order to delete them.
 
       ![Image is a screenshot showing the columns to delete](imagesDOC/deleteFields.png "Select columns to delete")
 
 6. Once all the necessary columns are highlighted, click OK.
 
-7. If the correct columns were deleted, click the floppy disc icon in the top left to save edits.
+7. If the correct columns were deleted, click the floppy disc icon in the top left to save edits, or press `Ctrl + S` on the keyboard.
 
     ![Image is a screenshot showing the columns to delete](imagesDOC/saveEdits.png "Save edits")
 
@@ -280,8 +278,6 @@ The point of using qgis2web instead of immediately starting with Leaflet is that
 
 9. In the window that appears, **navigate** to the project's git repository and choose **Open**.
 
-  ![Image is a screenshot highlighting the open button once in the correct git repository](imagesDOC/open.png "Navigate to the appropriate git repository")
-
 10. In the Export to web map window in QGIS, click **Export** at the bottom of the window.
 
   ![Image is a screenshot highlighting where the Export button is](imagesDOC/exportClick.png "Export to Leaflet")
@@ -291,8 +287,6 @@ The point of using qgis2web instead of immediately starting with Leaflet is that
 ## Editing qgis2web index.html file
 1. Navigate to the qgis2web folder in the git repository.
 
-  ![Image is a screenshot the git repository with the qgis2web export folder](imagesDOC/exportLocation.png "Exported qgis2web file")
-
 2. **Rename** the very long qgis2web folder name to **webapp**. This rename will be important for creating GitHub Pages at a later step. It is not necessary to use webapp specifically, but name it something short and memorable.
 
 3. Open the folder, which is now named **webapp** in this tutorial, and double click the **index.html** file. The map will open in the default web browser. If for some reason the map is not appearing, right click the file and select Open with to open it with another web browser (e.g., Firefox instead of Chrome).
@@ -301,9 +295,9 @@ The point of using qgis2web instead of immediately starting with Leaflet is that
 
   ![Image is a screenshot demonstrating how to open the file with Atom](imagesDOC/openAtom.png "Open the html file with Atom")
 
-    - As changes are made in the following steps, use command + S or File>Save to save edits.
-    - Periodically refresh the browser window with the map that is open to see the changes.
-    - If the for any reason the map disappears, troubleshoot the code in index.html file by using command + z to undo any previous changes (command + shift + z is redo). Check to see: was a colon or curly bracket accidentally deleted? If a variable was changed, were all variable names in the file updated and spelled correctly?
+  - As changes are made in the following steps, use command + S or File>Save to save edits.
+  - Periodically refresh the browser window with the map that is open to see the changes.
+  - If the for any reason the map disappears, troubleshoot the code in index.html file by using command + z to undo any previous changes (command + shift + z is redo). Check to see: was a colon or curly bracket accidentally deleted? If a variable was changed, were all variable names in the file updated and spelled correctly?
 
 
 5. Within the head tags (`<head>`), delete line 6, or the line which begins `meta name="viewport"...`.
