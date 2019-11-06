@@ -1,5 +1,13 @@
 # Creating, hosting, and publishing Leaflet maps with qgis2web and GitHub
-
+## Contents
+1. [Getting Started](#start)
+2. [A gentle introduction to GitHub](#introGit)
+3. [Working with QGIS](#qgis)
+4. [Editing qgis2web index.html file](#index)
+5. [Push changes to GitHub](#push)
+6. [Integrating with a website](#web)
+7. [Bonus materials on image processing](#bonus)
+<a id="start"></a>
 ## Getting started
 
 ### About
@@ -20,7 +28,7 @@ This tutorial was made using Mac iOS Mojave v 10.14.5. The following software an
 - [GitHub Desktop](https://desktop.github.com/)
 - [Atom text editor](https://atom.io/)--version 1.37.0 used
 - [Firefox](https://www.mozilla.org/en-US/firefox/new/) and/or [Chrome](https://www.google.com/chrome/) web browsers--I like viewing and testing the map in multiple browsers
-
+<a id="introGit"></a>
 ## A gentle introduction to GitHub
 This tutorial uses git and GitHub mostly through the desktop and the online interface rather than the command line. All steps for creating new repositories, publishing, and pushing changes are possible in Terminal or a command line tool, too, and are recommended to use over the Desktop app. See the [GitHub Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf) for the commands.
 
@@ -60,7 +68,7 @@ This tutorial uses git and GitHub mostly through the desktop and the online inte
   - gitRepositoryName = input the git repository name such as 2019_oslo
   - webapp = this is the where an index.html file or something to display online lives. In this workshop it is the folder that originally had the long qgis2web title and was changed to webapp in the section **Editing qgis2web index.html file**
   - For example a gh-pages link would like [taylorhixson.github.io/WF/webapp](https://taylorhixson.github.io/WF/webapp/#1/0/-4)
-
+<a id="qgis"></a>
 ## Working with QGIS
 **Note**: If downloading QGIS3 for the first time on a Mac, [watch this video](https://www.youtube.com/watch?v=908NyL7roFs). It is not a one-click install on Mac.
 
@@ -146,13 +154,13 @@ Now, the data in the CSV needs to be **reprojected** to match the OpenStreetMap 
 
 2. Search for **reproject**, and double click **Reproject layer** under Vector general.
 
-  ![Image is a screenshot highglighting the Reproject layer tool in the processing toolbox](imagesDOC/reprojectTool.png "Reproject layer")
+    ![Image is a screenshot highglighting the Reproject layer tool in the processing toolbox](imagesDOC/reprojectTool.png "Reproject layer")
 
 3. For the **parameters** in the window that appears:
   - **Input layer** should be the CSV. Search for it if necessary.
   - The **Target CRS is EPSG:3857**. If it is not in the dropdown, click the **globe icon** and **search for 3857**. This projection appears under Projected Coordinate Systems>Mercator>WGS 84 / Pseudo-Mercator, Authority ID EPSG:3857.
-  - For **Reprojected**, click the **three dots**, and choose **Save to File**.
-  - In the navigator, change the output file type to **.geojson**, give it a name, and choose the **Git repository** for this project as the **file directory path** to save the output.
+  - For **Reprojected**, click the **three dots**, and choose **Save to File**. Navigate to where you want the file saved. This should be somewhere in the git repository.
+  - In the Navigator window, change the output file type to **.geojson**, give it a name, and choose the **Git repository** for this project as the **file directory path** to save the output.
 
     ![Image is a screenshot showing how the parameters are input](imagesDOC/reprojectWindow.png "How the parameters should look")
 
@@ -279,7 +287,7 @@ The point of using qgis2web instead of immediately starting with Leaflet is that
   ![Image is a screenshot highlighting where the Export button is](imagesDOC/exportClick.png "Export to Leaflet")
 
 11. When the map successfully exported, click OK. The log will show **Success** and the export file path if it is successful.
-
+<a id="index"></a>
 ## Editing qgis2web index.html file
 1. Navigate to the qgis2web folder in the git repository.
 
@@ -393,7 +401,7 @@ googleHybrid;
 16. Make sure to continue to refresh the map in the browser to check the updates. Do the changes appear? If the map is not appearing at all, try to troubleshoot the code in the index.html file:
   - Was a colon or curly bracket accidentally deleted?
   - Were all variable names changed if choosing a new basemap?
-
+<a id="push"></a>
 ## Push changes to GitHub
 1. Open GitHub Desktop.
 
@@ -408,7 +416,7 @@ googleHybrid;
 4. In the top right, click **Push origin**.
 
   ![Image is a screenshot showing the Push origin button in Github Desktop.](imagesDOC/push.png "Push origin")
-
+<a id="web"></a>
 ## Integrating with a website
 The simplest way to embed the Leaflet map into a website is with an iframe. This may or may not be possible depending on the content management system being used. If you do not have a website, try creating a [Jekyll blog](https://jekyllrb.com/) that integrates with Github Pages. **Note**: This has not been tested by the tutorial author, but there is a [good Jekyll tutorial](https://devblast.com/b/create-a-static-websiteblog-with-jekyll-and-github-pages).
 
@@ -444,7 +452,7 @@ Maps are great! However, they may not be accessible to all users for reasons ran
 Wherever the map is hosted, include a thorough text description. It is even possible to do add a text description within the index.html with basic html knowledge! Drafting the text descriptions in a spreadsheet from the start helps with the text description process because it makes it easy to directly copy text into the post editor. If the places were not listed in any particular order, make an effort to arrange the text descriptions in a way that will make narrative sense.
 
 For example, if the map is of places, make an effort to provide a narrative or list that describes the places in the order they were visited. A thorough text description aims to give an equivalent experience to all users.
-
+<a id="bonus"></a>
 ## Bonus materials on image processing
 ### Reformat images
 The images I downloaded from the database for this workshop came in PDF format. For web viewing a thumbnail within the map popups, I thought a .png file was more appropriate. To reformat images use the following commands. These instructions are for Mac. The commands may or may not be compatible with other operating systems.
