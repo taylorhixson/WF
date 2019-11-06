@@ -328,7 +328,7 @@ overflow-y: scroll;
 ```
   ![Image is a screenshot showing where to paste the customized popup code in line 23 after the closed curly bracket](imagesDOC/popupCode.png "Paste the customized popup code")
 
-7. (Optional) To remove the scroll bar from the map itself, paste `overflow-y: scroll` in the #map class, which should be on or around line 20.
+7. (Optional) To remove the scroll bar from the map itself, paste `overflow-y: scroll` within the #map class curly brackets.
 
    ![Image is a screenshot showing the code pasted in the map class in line 25](imagesDOC/mapScroll.png "Remove map scroll")
 
@@ -414,7 +414,7 @@ googleHybrid;
 ## Integrating with a website
 The simplest way to embed the Leaflet map into a website is with an iframe. This may or may not be possible depending on the content management system being used. If you do not have a website, try creating a [Jekyll blog](https://jekyllrb.com/) that integrates with Github Pages. **Note**: This has not been tested by the tutorial author, but there is a [good Jekyll tutorial](https://devblast.com/b/create-a-static-websiteblog-with-jekyll-and-github-pages).
 
-As of May 2019, iframe html tags `<iframe>` do not seem to be compatible with the most recent version of free, personal instances of WordPress. The best reason I could find was "due to security reasons"
+As of May 2019, iframe html tags `<iframe>` do not seem to be compatible with the most recent version of free, personal instances of WordPress. The best reason I could find was "due to security reasons."
 
 Iframe html tags (e.g., `<iframe src=" ">`) may work with other content management systems and some older versions and instances of WordPress.
 
@@ -422,7 +422,7 @@ If you want to integrate the exported qgis2web map with a content management sys
 
 1. A **WordPress business plan** to access the [iframe plugin](https://wordpress.org/plugins/iframe/).
 2. A **hosting service** that allows you to upload html pages in the content management system's source code, but this may still require some use of an iframe. This has not been tested successfully by the tutorial author, but it is known to be possible.
-3. Create a link on a website you do have admin access to and link out to the gh-pages from the website. Work with the **index.html** file from qgis2web to start adding your own text and html to create a functional page or at least linking back to the original website.
+3. Create a link on a website you do have admin access to and link out to the gh-pages from the website. Work with the **index.html** file from qgis2web to start adding your own text and html to create a functional page or at least linking back to the original website. For example, the [WIDH visitor map](https://taylorhixson.github.io/WIDHmap/webapp/).
 
 ### Using the iframe html tag
 This option may work with some content management systems, self-hosted websites, or older versions of WordPress.
@@ -435,7 +435,7 @@ This option may work with some content management systems, self-hosted websites,
 
 4. Between the **iframe src= quotation marks**, paste the link to the **GitHub Pages** (gh-pages branch) for the project repository. It should look like https://YourGitHubAccount.github.io/repoName/webapp.
 
-5. Between the width and height quotations, set the width and height of the map. For example, the final html might look like: `<iframe src="https://taylorhixson.github.io/WF/webapp" width="800" height="400"></iframe>`. Also try adding scrolling="no". This may not work for all content management systems.
+5. Between the width and height quotations, set the width and height of the map. For example, the final html might look like: `<iframe src="https://taylorhixson.github.io/WF/webapp" width="100%" height="400"></iframe>`. For width=, the 100% indicates stretching to fill the page width. It is also possible to set the width to a static number such as `width="800"`.
 
 6. Click Preview to check out how it appears.
 
@@ -484,6 +484,7 @@ Open **Terminal**. If you are not sure where Terminal is, type Terminal into Mac
   ```sips -s format png 1873.pdf --out 1873.png
   ```
 
+  
 ### Resize images
 These instructions are for Mac. The commands may or may not be compatible with other operating systems.
 
@@ -523,7 +524,7 @@ Open **Terminal**. If you are not sure where Terminal is, type Terminal into Mac
 Format a column in html so that the photo will show up in the map popup. If you resized the image and want to link back to the original or larger format, create to columns: one with the image link to the large format one, and one with the html formatted image link to the resized image as shown how to format below.
 1. Go to [GitHub.com](https://github.com), and go to the project repository.
 
-2. Click the **images** folder.
+2. Click the **images** folder. This assumes there is a folder called images in the repository where images are saved.
 
 3. Click on an individual image link in the folder.
 
@@ -543,11 +544,11 @@ Format a column in html so that the photo will show up in the map popup. If you 
 
 8. In an empty cell in the rows with images, **create alt text** to be read by screen readers or to display when the image does not appear. Alt text should be descriptive of the image **not** the experience.
 
-  ![Image is screenshot showing multiple image links in column A and alternative text in column B](imagesDOC/altText.png "Create alt text column")
+  ![Image is screenshot showing an image link in column a column titled Thumbnail and alternative text in column a column titled AltText](imagesDOC/altText.png "Create alt text column")
 
 9. In the first empty cell in the next empty column type `=CONCATENATE` to activate the Concatenate formula.
 
-10. Within the Concatenate formula parentheses () type: ``"<img src=+",A1,"+ alt=+",B1,"+>"``. In the formula the plus sign (+) acts as a placeholder for quotation marks needed in the html. Quotations may or may not work with the Concatenate formula in your spreadsheet software, but it definitely does not work in Google Sheets.
+10. Within the Concatenate formula parentheses () type: ``"<img src=+",A1,"+ alt=+",B1,"+>"``. In the formula the plus sign (+) acts as a placeholder for quotation marks needed in the html. Quotations may or may not work with the Concatenate formula in your spreadsheet software, but it definitely does not work in Google Sheets. Additionally, your columns (e.g., A1, B1) may be different depending on where links and alt text are placed.
 
 11. Copy this formula down the column.
 
