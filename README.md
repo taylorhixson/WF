@@ -472,19 +472,13 @@ Open **Terminal**. If you are not sure where Terminal is, type Terminal into Mac
   cd images
   ```
 
-  4. Once in the directory, to batch reformat all the **files** into **PNGs** use the following command in Terminal:
-
-  ```
-  for i in *; do sips -s format png $i --out $i.png; done
-  ```
+  4. Once in the directory, to batch reformat all the **files** into **PNGs** use the following command in Terminal: `for i in *; do sips -s format png $i --out $i.png; done`
 
   The above will reformat all files in the directory, so if you have varied types in the folder such as PDFs and TIFFs that you want to turn into PNGs, this _should_ still work.  
 
-  Alternatively, reformat a single image using the following. **Note**: replace the input and output file names and file types with your own.
+  Alternatively, reformat a single image using the following: `sips -s format png 1873.pdf --out 1873.png`
 
-  ```sips -s format png 1873.pdf --out 1873.png
-  ```
-
+  **Note**: replace the input and output file names and file types with your own.  
 
 ### Resize images
 These instructions are for Mac. The commands may or may not be compatible with other operating systems.
@@ -551,7 +545,7 @@ Format a column in html so that the photo will show up in the map popup. If you 
 
 10. Within the Concatenate formula parentheses () type: ``"<img src=+",A1,"+ alt=+",B1,"+>"``. In the formula the plus sign (+) acts as a placeholder for quotation marks needed in the html. Quotations may or may not work with the Concatenate formula in your spreadsheet software, but it definitely does not work in Google Sheets. Additionally, your columns (e.g., A1, B1) may be different depending on where links and alt text are placed.
 
-11. Copy this formula down the column.
+11. Copy this formula down the column or into any cell that has an image and alt text.
 
 12. Copy the column and **paste as values** in the next empty column. In Google Sheets, use **command + shift + v** to paste as values, or right click/control click the first empty cell and choose Paste Special>Paste Values Only.
 
