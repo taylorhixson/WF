@@ -45,6 +45,7 @@ This tutorial uses git and GitHub mostly through the desktop and the online inte
 4. Once the repository is forked, it will show up in your repositories. If needed click your profile avatar in the top right and choose **Your repositories**. If the repository was forked correctly, a repository called **WF** should appear.
 
 5. In the **WF** repository, click **Clone or download**, and from that popup, choose **Open in Desktop**. Make sure the link shows your GitHub username **NOT** the workshop creator's username. The below screenshot shows the creator's because the screenshot was taken from her account.
+
   ![Image is a screenshot of the middle right of the repository options in GitHub showing the Create new file, Upload files, Find files, and Clone or download options with Clone or download outlined in red](imagesDOC/clone.png "Clone this repository")
 
   If the browser prompts you, choose **Open GitHub Desktop**.

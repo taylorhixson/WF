@@ -12,6 +12,9 @@ min-height: 100px;
 overflow-y: scroll;
 }
 
+<!--Add in #map class to remove vertical scroll bar from map-->
+    overflow-y: scroll;
+
 <!--Add Google imagery/street hybrid layer instead of OSM-->
 
 var googleHybrid = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
@@ -50,4 +53,18 @@ var map = L.map('map', {
     zoomControl:true, maxZoom:28, minZoom:1
 }).setView(place, 6);
 
-<!--code for iframe in WordPress-->
+<!--sample code for iframe in WordPress-->
+<iframe src="https://taylorhixson.github.io/WF/webapp" width="100%" height="550px" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+
+<!--Optional metadata elements to go in head-->
+<meta name="DC.title" content="NYUAD WIDH map" />
+<title>NYUAD WIDH map</title>
+<meta name="DC.creator" content="Hixson,Taylor" />
+<meta name="email:creator" content="taylorhixson@gmail.com" />
+<meta name="DC.description" content="A map for visitors to NYU Abu Dhabi during the Winter Institute in Digital Humanities." />
+<meta property="description" content="A map for visitors to NYU Abu Dhabi during the Winter Institute in Digital Humanities." />
+<meta name="DC.type" content="Text">
+<meta property="og:type" content="website" />
+<meta name="DC.created" content="2019-10-08">
+<meta name="DC.date" content="2019-10-08">
+<meta property="og:locale" content="en_US" />
