@@ -3,30 +3,19 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-capable" content="yes">
+        <!-- Mobile meta tags to go in head-->
         <meta name="HandheldFriendly" content="True">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta name="MobileOptimized" content="320"/>
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta http-equiv="cleartype" content="on">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
         <link rel="stylesheet" href="css/MarkerCluster.css">
         <link rel="stylesheet" href="css/MarkerCluster.Default.css">
         <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
-        <meta name="DC.title" content="NYUAD WIDH map" />
-        <title>World's Fairs Map</title>
-        <meta name="DC.creator" content="Hixson,Taylor" />
-        <meta name="email:creator" content="taylorhixson@gmail.com" />
-        <meta name="DC.description" content="A map of the World's Fairs locations throughout time." />
-        <meta property="description" content="A map of the World's Fairs locations throughout time." />
-        <meta name="DC.type" content="Text">
-        <meta property="og:type" content="website" />
-        <meta name="DC.created" content="2019-11-13">
-        <meta name="DC.date" content="2019-11-13">
-        <meta property="og:locale" content="en_US" />
         <style>
         html, body, #map {
             width: 100%;
@@ -35,9 +24,9 @@
             margin: 0;
             overflow-y: scroll;
         }.leaflet-popup-content {
-        min-width: 200px;
-        min-height: 100px;
-        overflow-y: scroll;
+            min-width: 200px;
+            min-height: 100px;
+            overflow-y: scroll;
         }
         </style>
         <title></title>
@@ -58,44 +47,21 @@
         <script src="js/leaflet.markercluster.js"></script>
         <script src="data/wf_1.js"></script>
         <script>
-        var highlightLayer;
-        function highlightFeature(e) {
-            highlightLayer = e.target;
-
-            if (e.target.feature.geometry.type === 'LineString') {
-              highlightLayer.setStyle({
-                color: '#ffff00',
-              });
-            } else {
-              highlightLayer.setStyle({
-                fillColor: '#ffff00',
-                fillOpacity: 1
-              });
-            }
-        }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[40.887872097261635,-10.281607923238658],[61.233299379601284,29.869396717750913]]);
+        }).fitBounds([[-87.65675871867654,-178.55231151781084],[86.80500880062353,170.84331448883353]]);
         var hash = new L.Hash(map);
-        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        var layer_OSMStandard_0 = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             opacity: 1.0,
             attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
         });
         layer_OSMStandard_0;
         map.addLayer(layer_OSMStandard_0);
         function pop_wf_1(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Location</strong><br />' + (feature.properties['Location'] !== null ? Autolinker.link(String(feature.properties['Location'])) : '') + '</td>\
@@ -122,10 +88,16 @@
                         <td colspan="2"><strong>No. countries represented</strong><br />' + (feature.properties['No. countries represented'] !== null ? Autolinker.link(String(feature.properties['No. countries represented'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Thumbnail'] !== null ? Autolinker.link(String(feature.properties['Thumbnail'])) : '') + '</td>\
+                        <td colspan="2"><strong>Latitude</strong><br />' + (feature.properties['Latitude'] !== null ? Autolinker.link(String(feature.properties['Latitude'])) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Image Source'] !== null ? Autolinker.link(String(feature.properties['Image Source'])) : '') + '</td>\
+                        <td colspan="2"><strong>Longitude</strong><br />' + (feature.properties['Longitude'] !== null ? Autolinker.link(String(feature.properties['Longitude'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Thumbnail</strong><br />' + (feature.properties['Thumbnail'] !== null ? Autolinker.link(String(feature.properties['Thumbnail'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Image Source</strong><br />' + (feature.properties['Image Source'] !== null ? Autolinker.link(String(feature.properties['Image Source'])) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Image Link'] !== null ? Autolinker.link(String(feature.properties['Image Link'])) : '') + '</td>\
@@ -137,16 +109,16 @@
         function style_wf_1_0() {
             return {
                 pane: 'pane_wf_1',
-                radius: 8.0,
+                radius: 4.0,
                 opacity: 1,
-                color: 'rgba(61,128,53,1.0)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 2.0,
+                weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(84,176,74,1.0)',
+                fillColor: 'rgba(243,166,178,1.0)',
             }
         }
         map.createPane('pane_wf_1');
@@ -161,7 +133,7 @@
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_wf_1_0(feature));
+                return L.circleMarker(latlng, style_wf_1_0(feature));
             },
         });
         var cluster_wf_1 = new L.MarkerClusterGroup({showCoverageOnHover: false,
@@ -180,6 +152,8 @@
         .className += ' fa fa-search';
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/wf_1.png" /> wf': cluster_wf_1,"OSM Standard": layer_OSMStandard_0,}).addTo(map);
         setBounds();
         </script>
     </body>
