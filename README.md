@@ -338,10 +338,6 @@ overflow-y: scroll;
 ```
   ![Image is a screenshot showing where to paste the customized popup code in line 23 after the closed curly bracket](imagesDOC/popupCode.png "Paste the customized popup code")
 
-7. (Optional) To remove the scroll bar from the map itself, paste `overflow-y: scroll` within the #map class curly brackets.
-
-   ![Image is a screenshot showing the code pasted in the map class in line 25](imagesDOC/mapScroll.png "Remove map scroll")
-
 8. (Optional) Use command + F to find `marker`.
 
   ![Image is a screenshot showing where to find the point markers](imagesDOC/marker.png "Change the markers")
