@@ -23,7 +23,7 @@
             padding-right: 10px;
         }
         .leaflet-popup-content {
-            width:auto !important;
+            width:auto;
             padding-right:10px;
         }
         .leaflet-tooltip {
@@ -46,6 +46,25 @@
             background-color: #f8f8f8 !important;
             border-radius: 0px !important;
             color: #000000 !important;
+        }
+        .abstract {
+            font: bold 18px 'Lucida Console', Monaco, monospace;
+            text-indent: 1px;
+            background-color: #f8f8f8 !important;
+            width: 30px !important;
+            color: #000000 !important;
+            height: 30px !important;
+            text-align: center !important;
+            line-height: 30px !important;
+        }
+        .abstractUncollapsed {
+            padding: 6px 8px;
+            font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+            background-color:#f8f8f8 !important;
+            color: #000000 !important;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            max-width: 40%;
         }
         .leaflet-touch .leaflet-control-layers,
         .leaflet-touch .leaflet-bar,

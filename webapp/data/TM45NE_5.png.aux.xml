@@ -1,0 +1,22 @@
+<PAMDataset>
+  <SRS dataAxisToSRSAxisMapping="1,2">PROJCS["OSGB36 / British National Grid",GEOGCS["OSGB36",DATUM["Ordnance_Survey_of_Great_Britain_1936",SPHEROID["Airy 1830",6377563.396,299.3249646,AUTHORITY["EPSG","7001"]],AUTHORITY["EPSG","6277"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4277"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",49],PARAMETER["central_meridian",-2],PARAMETER["scale_factor",0.9996012717],PARAMETER["false_easting",400000],PARAMETER["false_northing",-100000],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH],AUTHORITY["EPSG","27700"]]</SRS>
+  <GeoTransform>  6.4500000000000000e+05,  1.0000000000000000e+00,  0.0000000000000000e+00,  2.6000000000000000e+05,  0.0000000000000000e+00, -1.0000000000000000e+00</GeoTransform>
+  <Metadata domain="IMAGE_STRUCTURE">
+    <MDI key="INTERLEAVE">PIXEL</MDI>
+  </Metadata>
+  <Metadata>
+    <MDI key="AREA_OR_POINT">Area</MDI>
+  </Metadata>
+  <PAMRasterBand band="1">
+    <NoDataValue>0.00000000000000E+00</NoDataValue>
+  </PAMRasterBand>
+  <PAMRasterBand band="2">
+    <NoDataValue>0.00000000000000E+00</NoDataValue>
+  </PAMRasterBand>
+  <PAMRasterBand band="3">
+    <NoDataValue>0.00000000000000E+00</NoDataValue>
+  </PAMRasterBand>
+  <PAMRasterBand band="4">
+    <NoDataValue>0.00000000000000E+00</NoDataValue>
+  </PAMRasterBand>
+</PAMDataset>
