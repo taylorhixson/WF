@@ -3,11 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="HandheldFriendly" content="True">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <meta name="MobileOptimized" content="320"/>
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta http-equiv="cleartype" content="on">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css">
@@ -17,10 +13,6 @@
         #map {
             width: 1275px;
             height: 673px;
-        }.leaflet-popup-content {
-        min-width: 200px;
-        min-height: 100px;
-        overflow-y: scroll;
         }
         </style>
         <title></title>
@@ -41,34 +33,34 @@
         <script src="js/leaflet-measure.js"></script>
         <script src="js/proj4.js"></script>
         <script src="js/proj4leaflet.js"></script>
-        <script src="data/Driveway_10.js"></script>
-        <script src="data/Garages_11.js"></script>
-        <script src="data/BuildingsNG_12.js"></script>
-        <script src="data/RoofLines_13.js"></script>
-        <script src="data/Pathways_14.js"></script>
-        <script src="data/Paving_15.js"></script>
-        <script src="data/Grass_16.js"></script>
-        <script src="data/Fences_17.js"></script>
-        <script src="data/Taps_18.js"></script>
-        <script src="data/Pipes_19.js"></script>
-        <script src="data/Manholes_20.js"></script>
-        <script src="data/Lighting_21.js"></script>
-        <script src="data/Downpipe_22.js"></script>
+        <script src="data/Driveway_1.js"></script>
+        <script src="data/Garages_2.js"></script>
+        <script src="data/BuildingsNG_3.js"></script>
+        <script src="data/RoofLines_4.js"></script>
+        <script src="data/Pathways_5.js"></script>
+        <script src="data/Paving_6.js"></script>
+        <script src="data/Grass_7.js"></script>
+        <script src="data/Fences_8.js"></script>
+        <script src="data/Taps_9.js"></script>
+        <script src="data/Pipes_10.js"></script>
+        <script src="data/Manholes_11.js"></script>
+        <script src="data/Lighting_12.js"></script>
+        <script src="data/Downpipe_13.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
             highlightLayer = e.target;
             highlightLayer.openPopup();
         }
-        var crs = new L.Proj.CRS('EPSG:27700', '+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs', {
+        var crs = new L.Proj.CRS('EPSG:3857', '+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs', {
             resolutions: [2800, 1400, 700, 350, 175, 84, 42, 21, 11.2, 5.6, 2.8, 1.4, 0.7, 0.35, 0.14, 0.07],
         });
         var map = L.map('map', {
             crs: crs,
             continuousWorld: false,
-            worldCopyJump: false,
+            worldCopyJump: false, 
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[52.15681219212339,1.5978834612726316],[52.15816071290037,1.6017843311935214]]);
+        }).fitBounds([[52.15614095009195,1.5963566404984193],[52.15866382862367,1.604158383943411]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -88,97 +80,16 @@
         function setBounds() {
             map.setMaxBounds(map.getBounds());
         }
-        map.createPane('pane_TM35NE_0');
-        map.getPane('pane_TM35NE_0').style.zIndex = 400;
-        var img_TM35NE_0 = 'data/TM35NE_0.png';
-        var img_bounds_TM35NE_0 = [[52.141135705591324,1.4331267000321724],[52.18815455925319,1.5095876241581039]];
-        var layer_TM35NE_0 = new L.imageOverlay(img_TM35NE_0,
-                                              img_bounds_TM35NE_0,
-                                              {pane: 'pane_TM35NE_0'});
-        bounds_group.addLayer(layer_TM35NE_0);
-        map.addLayer(layer_TM35NE_0);
-        map.createPane('pane_TM35SE_1');
-        map.getPane('pane_TM35SE_1').style.zIndex = 401;
-        var img_TM35SE_1 = 'data/TM35SE_1.png';
-        var img_bounds_TM35SE_1 = [[52.09626607761097,1.4296767968196558],[52.14328229201774,1.5060553005731745]];
-        var layer_TM35SE_1 = new L.imageOverlay(img_TM35SE_1,
-                                              img_bounds_TM35SE_1,
-                                              {pane: 'pane_TM35SE_1'});
-        bounds_group.addLayer(layer_TM35SE_1);
-        map.addLayer(layer_TM35SE_1);
-        map.createPane('pane_TM33NE_2');
-        map.getPane('pane_TM33NE_2').style.zIndex = 402;
-        var img_TM33NE_2 = 'data/TM33NE_2.png';
-        var img_bounds_TM33NE_2 = [[51.96165579425265,1.4193819932313088],[52.00866310096667,1.49551422917826]];
-        var layer_TM33NE_2 = new L.imageOverlay(img_TM33NE_2,
-                                              img_bounds_TM33NE_2,
-                                              {pane: 'pane_TM33NE_2'});
-        bounds_group.addLayer(layer_TM33NE_2);
-        map.addLayer(layer_TM33NE_2);
-        map.createPane('pane_TM33NW_3');
-        map.getPane('pane_TM33NW_3').style.zIndex = 403;
-        var img_TM33NW_3 = 'data/TM33NW_3.png';
-        var img_bounds_TM33NW_3 = [[51.96378904383975,1.3467346975190708],[52.010754864977095,1.4228051404606261]];
-        var layer_TM33NW_3 = new L.imageOverlay(img_TM33NW_3,
-                                              img_bounds_TM33NW_3,
-                                              {pane: 'pane_TM33NW_3'});
-        bounds_group.addLayer(layer_TM33NW_3);
-        map.addLayer(layer_TM33NW_3);
-        map.createPane('pane_TM23NE_4');
-        map.getPane('pane_TM23NE_4').style.zIndex = 404;
-        var img_TM23NE_4 = 'data/TM23NE_4.png';
-        var img_bounds_TM23NE_4 = [[51.96587767917156,1.2740799516723884],[52.012801671157185,1.3500850562380275]];
-        var layer_TM23NE_4 = new L.imageOverlay(img_TM23NE_4,
-                                              img_bounds_TM23NE_4,
-                                              {pane: 'pane_TM23NE_4'});
-        bounds_group.addLayer(layer_TM23NE_4);
-        map.addLayer(layer_TM23NE_4);
-        map.createPane('pane_TM45NE_5');
-        map.getPane('pane_TM45NE_5').style.zIndex = 405;
-        var img_TM45NE_5 = 'data/TM45NE_5.png';
-        var img_bounds_TM45NE_5 = [[52.13670555321279,1.5789751741512525],[52.18380868853128,1.6555631191278366]];
-        var layer_TM45NE_5 = new L.imageOverlay(img_TM45NE_5,
-                                              img_bounds_TM45NE_5,
-                                              {pane: 'pane_TM45NE_5'});
-        bounds_group.addLayer(layer_TM45NE_5);
-        map.addLayer(layer_TM45NE_5);
-        map.createPane('pane_TM45SE_6');
-        map.getPane('pane_TM45SE_6').style.zIndex = 406;
-        var img_TM45SE_6 = 'data/TM45SE_6.png';
-        var img_bounds_TM45SE_6 = [[52.09184304622871,1.575378918181418],[52.138943325424854,1.6518855883371917]];
-        var layer_TM45SE_6 = new L.imageOverlay(img_TM45SE_6,
-                                              img_bounds_TM45SE_6,
-                                              {pane: 'pane_TM45SE_6'});
-        bounds_group.addLayer(layer_TM45SE_6);
-        map.addLayer(layer_TM45SE_6);
-        map.createPane('pane_TM45SW_7');
-        map.getPane('pane_TM45SW_7').style.zIndex = 407;
-        var img_TM45SW_7 = 'data/TM45SW_7.png';
-        var img_bounds_TM45SW_7 = [[52.094077182284835,1.5025322578723503],[52.14113570559132,1.5789751741512346]];
-        var layer_TM45SW_7 = new L.imageOverlay(img_TM45SW_7,
-                                              img_bounds_TM45SW_7,
-                                              {pane: 'pane_TM45SW_7'});
-        bounds_group.addLayer(layer_TM45SW_7);
-        map.addLayer(layer_TM45SW_7);
-        map.createPane('pane_TM45NW_8');
-        map.getPane('pane_TM45NW_8').style.zIndex = 408;
-        var img_TM45NW_8 = 'data/TM45NW_8.png';
-        var img_bounds_TM45NW_8 = [[52.13894332542486,1.5060553005731916],[52.186004452817265,1.5825798989082063]];
-        var layer_TM45NW_8 = new L.imageOverlay(img_TM45NW_8,
-                                              img_bounds_TM45NW_8,
-                                              {pane: 'pane_TM45NW_8'});
-        bounds_group.addLayer(layer_TM45NW_8);
-        map.addLayer(layer_TM45NW_8);
-        map.createPane('pane_NCGoogle_modified_9');
-        map.getPane('pane_NCGoogle_modified_9').style.zIndex = 409;
-        var img_NCGoogle_modified_9 = 'data/NCGoogle_modified_9.png';
-        var img_bounds_NCGoogle_modified_9 = [[52.1568452678558,1.5987445469423367],[52.158086450111014,1.6006068927196386]];
-        var layer_NCGoogle_modified_9 = new L.imageOverlay(img_NCGoogle_modified_9,
-                                              img_bounds_NCGoogle_modified_9,
-                                              {pane: 'pane_NCGoogle_modified_9'});
-        bounds_group.addLayer(layer_NCGoogle_modified_9);
-        map.addLayer(layer_NCGoogle_modified_9);
-        function pop_Driveway_10(feature, layer) {
+        map.createPane('pane_NCGoogle_modified_0');
+        map.getPane('pane_NCGoogle_modified_0').style.zIndex = 400;
+        var img_NCGoogle_modified_0 = 'data/NCGoogle_modified_0.png';
+        var img_bounds_NCGoogle_modified_0 = [[52.1568452678558,1.5987445469423367],[52.158086450111014,1.6006068927196386]];
+        var layer_NCGoogle_modified_0 = new L.imageOverlay(img_NCGoogle_modified_0,
+                                              img_bounds_NCGoogle_modified_0,
+                                              {pane: 'pane_NCGoogle_modified_0'});
+        bounds_group.addLayer(layer_NCGoogle_modified_0);
+        map.addLayer(layer_NCGoogle_modified_0);
+        function pop_Driveway_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -202,9 +113,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Driveway_10_0() {
+        function style_Driveway_1_0() {
             return {
-                pane: 'pane_Driveway_10',
+                pane: 'pane_Driveway_1',
                 opacity: 1,
                 color: 'rgba(26,191,228,1.0)',
                 dashArray: '',
@@ -215,21 +126,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Driveway_10');
-        map.getPane('pane_Driveway_10').style.zIndex = 410;
-        map.getPane('pane_Driveway_10').style['mix-blend-mode'] = 'normal';
-        var layer_Driveway_10 = new L.geoJson(json_Driveway_10, {
+        map.createPane('pane_Driveway_1');
+        map.getPane('pane_Driveway_1').style.zIndex = 401;
+        map.getPane('pane_Driveway_1').style['mix-blend-mode'] = 'normal';
+        var layer_Driveway_1 = new L.geoJson(json_Driveway_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Driveway_10',
-            layerName: 'layer_Driveway_10',
-            pane: 'pane_Driveway_10',
-            onEachFeature: pop_Driveway_10,
-            style: style_Driveway_10_0,
+            dataVar: 'json_Driveway_1',
+            layerName: 'layer_Driveway_1',
+            pane: 'pane_Driveway_1',
+            onEachFeature: pop_Driveway_1,
+            style: style_Driveway_1_0,
         });
-        bounds_group.addLayer(layer_Driveway_10);
-        map.addLayer(layer_Driveway_10);
-        function pop_Garages_11(feature, layer) {
+        bounds_group.addLayer(layer_Driveway_1);
+        map.addLayer(layer_Driveway_1);
+        function pop_Garages_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -247,42 +158,43 @@
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Addr_No'] !== null ? autolinker.link(feature.properties['Addr_No'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Addr_No</th>\
+                        <td>' + (feature.properties['Addr_No'] !== null ? autolinker.link(feature.properties['Addr_No'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Garages_11_0() {
+        function style_Garages_2_0() {
             return {
-                pane: 'pane_Garages_11',
+                pane: 'pane_Garages_2',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0,
+                weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(133,182,111,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_Garages_11');
-        map.getPane('pane_Garages_11').style.zIndex = 411;
-        map.getPane('pane_Garages_11').style['mix-blend-mode'] = 'normal';
-        var layer_Garages_11 = new L.geoJson(json_Garages_11, {
+        map.createPane('pane_Garages_2');
+        map.getPane('pane_Garages_2').style.zIndex = 402;
+        map.getPane('pane_Garages_2').style['mix-blend-mode'] = 'normal';
+        var layer_Garages_2 = new L.geoJson(json_Garages_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Garages_11',
-            layerName: 'layer_Garages_11',
-            pane: 'pane_Garages_11',
-            onEachFeature: pop_Garages_11,
-            style: style_Garages_11_0,
+            dataVar: 'json_Garages_2',
+            layerName: 'layer_Garages_2',
+            pane: 'pane_Garages_2',
+            onEachFeature: pop_Garages_2,
+            style: style_Garages_2_0,
         });
-        bounds_group.addLayer(layer_Garages_11);
-        map.addLayer(layer_Garages_11);
-        function pop_BuildingsNG_12(feature, layer) {
+        bounds_group.addLayer(layer_Garages_2);
+        map.addLayer(layer_Garages_2);
+        function pop_BuildingsNG_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -300,40 +212,41 @@
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Addr_No'] !== null ? autolinker.link(feature.properties['Addr_No'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Address No</th>\
+                        <td>' + (feature.properties['Addr_No'] !== null ? autolinker.link(feature.properties['Addr_No'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_BuildingsNG_12_0() {
+        function style_BuildingsNG_3_0() {
             return {
-                pane: 'pane_BuildingsNG_12',
+                pane: 'pane_BuildingsNG_3',
                 opacity: 1,
                 color: 'rgba(221,19,19,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0,
+                weight: 1.0, 
                 fillOpacity: 0,
                 interactive: true,
             }
         }
-        map.createPane('pane_BuildingsNG_12');
-        map.getPane('pane_BuildingsNG_12').style.zIndex = 412;
-        map.getPane('pane_BuildingsNG_12').style['mix-blend-mode'] = 'normal';
-        var layer_BuildingsNG_12 = new L.geoJson(json_BuildingsNG_12, {
+        map.createPane('pane_BuildingsNG_3');
+        map.getPane('pane_BuildingsNG_3').style.zIndex = 403;
+        map.getPane('pane_BuildingsNG_3').style['mix-blend-mode'] = 'normal';
+        var layer_BuildingsNG_3 = new L.geoJson(json_BuildingsNG_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_BuildingsNG_12',
-            layerName: 'layer_BuildingsNG_12',
-            pane: 'pane_BuildingsNG_12',
-            onEachFeature: pop_BuildingsNG_12,
-            style: style_BuildingsNG_12_0,
+            dataVar: 'json_BuildingsNG_3',
+            layerName: 'layer_BuildingsNG_3',
+            pane: 'pane_BuildingsNG_3',
+            onEachFeature: pop_BuildingsNG_3,
+            style: style_BuildingsNG_3_0,
         });
-        bounds_group.addLayer(layer_BuildingsNG_12);
-        map.addLayer(layer_BuildingsNG_12);
-        function pop_RoofLines_13(feature, layer) {
+        bounds_group.addLayer(layer_BuildingsNG_3);
+        map.addLayer(layer_BuildingsNG_3);
+        function pop_RoofLines_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -351,17 +264,18 @@
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Type'] !== null ? autolinker.link(feature.properties['Type'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Type</th>\
+                        <td>' + (feature.properties['Type'] !== null ? autolinker.link(feature.properties['Type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_RoofLines_13_0(feature) {
+        function style_RoofLines_4_0(feature) {
             switch(String(feature.properties['Type'])) {
                 default:
                     return {
-                pane: 'pane_RoofLines_13',
+                pane: 'pane_RoofLines_4',
                 opacity: 1,
                 color: 'rgba(39,45,217,1.0)',
                 dashArray: '',
@@ -374,7 +288,7 @@
                     break;
                 case 'Dorm Window Flashing':
                     return {
-                pane: 'pane_RoofLines_13',
+                pane: 'pane_RoofLines_4',
                 opacity: 1,
                 color: 'rgba(135,162,166,1.0)',
                 dashArray: '',
@@ -387,7 +301,7 @@
                     break;
                 case 'Fascia with flashing':
                     return {
-                pane: 'pane_RoofLines_13',
+                pane: 'pane_RoofLines_4',
                 opacity: 1,
                 color: 'rgba(138,127,110,1.0)',
                 dashArray: '',
@@ -400,7 +314,7 @@
                     break;
                 case 'Gable':
                     return {
-                pane: 'pane_RoofLines_13',
+                pane: 'pane_RoofLines_4',
                 opacity: 1,
                 color: 'rgba(186,231,61,1.0)',
                 dashArray: '',
@@ -413,7 +327,7 @@
                     break;
                 case 'GutterLine':
                     return {
-                pane: 'pane_RoofLines_13',
+                pane: 'pane_RoofLines_4',
                 opacity: 1,
                 color: 'rgba(130,188,239,1.0)',
                 dashArray: '',
@@ -426,7 +340,7 @@
                     break;
                 case 'Hip':
                     return {
-                pane: 'pane_RoofLines_13',
+                pane: 'pane_RoofLines_4',
                 opacity: 1,
                 color: 'rgba(71,135,108,1.0)',
                 dashArray: '',
@@ -439,7 +353,7 @@
                     break;
                 case 'Ridge':
                     return {
-                pane: 'pane_RoofLines_13',
+                pane: 'pane_RoofLines_4',
                 opacity: 1,
                 color: 'rgba(68,214,237,1.0)',
                 dashArray: '',
@@ -452,7 +366,7 @@
                     break;
                 case 'Valley':
                     return {
-                pane: 'pane_RoofLines_13',
+                pane: 'pane_RoofLines_4',
                 opacity: 1,
                 color: 'rgba(36,85,231,1.0)',
                 dashArray: '',
@@ -465,21 +379,21 @@
                     break;
             }
         }
-        map.createPane('pane_RoofLines_13');
-        map.getPane('pane_RoofLines_13').style.zIndex = 413;
-        map.getPane('pane_RoofLines_13').style['mix-blend-mode'] = 'normal';
-        var layer_RoofLines_13 = new L.geoJson(json_RoofLines_13, {
+        map.createPane('pane_RoofLines_4');
+        map.getPane('pane_RoofLines_4').style.zIndex = 404;
+        map.getPane('pane_RoofLines_4').style['mix-blend-mode'] = 'normal';
+        var layer_RoofLines_4 = new L.geoJson(json_RoofLines_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_RoofLines_13',
-            layerName: 'layer_RoofLines_13',
-            pane: 'pane_RoofLines_13',
-            onEachFeature: pop_RoofLines_13,
-            style: style_RoofLines_13_0,
+            dataVar: 'json_RoofLines_4',
+            layerName: 'layer_RoofLines_4',
+            pane: 'pane_RoofLines_4',
+            onEachFeature: pop_RoofLines_4,
+            style: style_RoofLines_4_0,
         });
-        bounds_group.addLayer(layer_RoofLines_13);
-        map.addLayer(layer_RoofLines_13);
-        function pop_Pathways_14(feature, layer) {
+        bounds_group.addLayer(layer_RoofLines_4);
+        map.addLayer(layer_RoofLines_4);
+        function pop_Pathways_5(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -500,36 +414,36 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Pathways_14_0() {
+        function style_Pathways_5_0() {
             return {
-                pane: 'pane_Pathways_14',
+                pane: 'pane_Pathways_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0,
+                weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(145,112,39,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_Pathways_14');
-        map.getPane('pane_Pathways_14').style.zIndex = 414;
-        map.getPane('pane_Pathways_14').style['mix-blend-mode'] = 'normal';
-        var layer_Pathways_14 = new L.geoJson(json_Pathways_14, {
+        map.createPane('pane_Pathways_5');
+        map.getPane('pane_Pathways_5').style.zIndex = 405;
+        map.getPane('pane_Pathways_5').style['mix-blend-mode'] = 'normal';
+        var layer_Pathways_5 = new L.geoJson(json_Pathways_5, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Pathways_14',
-            layerName: 'layer_Pathways_14',
-            pane: 'pane_Pathways_14',
-            onEachFeature: pop_Pathways_14,
-            style: style_Pathways_14_0,
+            dataVar: 'json_Pathways_5',
+            layerName: 'layer_Pathways_5',
+            pane: 'pane_Pathways_5',
+            onEachFeature: pop_Pathways_5,
+            style: style_Pathways_5_0,
         });
-        bounds_group.addLayer(layer_Pathways_14);
-        map.addLayer(layer_Pathways_14);
-        function pop_Paving_15(feature, layer) {
+        bounds_group.addLayer(layer_Pathways_5);
+        map.addLayer(layer_Pathways_5);
+        function pop_Paving_6(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -547,43 +461,42 @@
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Descriptio</th>\
-                        <td>' + (feature.properties['Descriptio'] !== null ? autolinker.link(feature.properties['Descriptio'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Descriptio'] !== null ? autolinker.link(feature.properties['Descriptio'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Paving_15_0() {
+        function style_Paving_6_0() {
             return {
-                pane: 'pane_Paving_15',
+                pane: 'pane_Paving_6',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0,
+                weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(238,226,3,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_Paving_15');
-        map.getPane('pane_Paving_15').style.zIndex = 415;
-        map.getPane('pane_Paving_15').style['mix-blend-mode'] = 'normal';
-        var layer_Paving_15 = new L.geoJson(json_Paving_15, {
+        map.createPane('pane_Paving_6');
+        map.getPane('pane_Paving_6').style.zIndex = 406;
+        map.getPane('pane_Paving_6').style['mix-blend-mode'] = 'normal';
+        var layer_Paving_6 = new L.geoJson(json_Paving_6, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Paving_15',
-            layerName: 'layer_Paving_15',
-            pane: 'pane_Paving_15',
-            onEachFeature: pop_Paving_15,
-            style: style_Paving_15_0,
+            dataVar: 'json_Paving_6',
+            layerName: 'layer_Paving_6',
+            pane: 'pane_Paving_6',
+            onEachFeature: pop_Paving_6,
+            style: style_Paving_6_0,
         });
-        bounds_group.addLayer(layer_Paving_15);
-        map.addLayer(layer_Paving_15);
-        function pop_Grass_16(feature, layer) {
+        bounds_group.addLayer(layer_Paving_6);
+        map.addLayer(layer_Paving_6);
+        function pop_Grass_7(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -607,36 +520,36 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Grass_16_0() {
+        function style_Grass_7_0() {
             return {
-                pane: 'pane_Grass_16',
+                pane: 'pane_Grass_7',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0,
+                weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(3,180,21,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_Grass_16');
-        map.getPane('pane_Grass_16').style.zIndex = 416;
-        map.getPane('pane_Grass_16').style['mix-blend-mode'] = 'normal';
-        var layer_Grass_16 = new L.geoJson(json_Grass_16, {
+        map.createPane('pane_Grass_7');
+        map.getPane('pane_Grass_7').style.zIndex = 407;
+        map.getPane('pane_Grass_7').style['mix-blend-mode'] = 'normal';
+        var layer_Grass_7 = new L.geoJson(json_Grass_7, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Grass_16',
-            layerName: 'layer_Grass_16',
-            pane: 'pane_Grass_16',
-            onEachFeature: pop_Grass_16,
-            style: style_Grass_16_0,
+            dataVar: 'json_Grass_7',
+            layerName: 'layer_Grass_7',
+            pane: 'pane_Grass_7',
+            onEachFeature: pop_Grass_7,
+            style: style_Grass_7_0,
         });
-        bounds_group.addLayer(layer_Grass_16);
-        map.addLayer(layer_Grass_16);
-        function pop_Fences_17(feature, layer) {
+        bounds_group.addLayer(layer_Grass_7);
+        map.addLayer(layer_Grass_7);
+        function pop_Fences_8(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -660,9 +573,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Fences_17_0() {
+        function style_Fences_8_0() {
             return {
-                pane: 'pane_Fences_17',
+                pane: 'pane_Fences_8',
                 opacity: 1,
                 color: 'rgba(112,75,58,1.0)',
                 dashArray: '',
@@ -673,21 +586,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Fences_17');
-        map.getPane('pane_Fences_17').style.zIndex = 417;
-        map.getPane('pane_Fences_17').style['mix-blend-mode'] = 'normal';
-        var layer_Fences_17 = new L.geoJson(json_Fences_17, {
+        map.createPane('pane_Fences_8');
+        map.getPane('pane_Fences_8').style.zIndex = 408;
+        map.getPane('pane_Fences_8').style['mix-blend-mode'] = 'normal';
+        var layer_Fences_8 = new L.geoJson(json_Fences_8, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Fences_17',
-            layerName: 'layer_Fences_17',
-            pane: 'pane_Fences_17',
-            onEachFeature: pop_Fences_17,
-            style: style_Fences_17_0,
+            dataVar: 'json_Fences_8',
+            layerName: 'layer_Fences_8',
+            pane: 'pane_Fences_8',
+            onEachFeature: pop_Fences_8,
+            style: style_Fences_8_0,
         });
-        bounds_group.addLayer(layer_Fences_17);
-        map.addLayer(layer_Fences_17);
-        function pop_Taps_18(feature, layer) {
+        bounds_group.addLayer(layer_Fences_8);
+        map.addLayer(layer_Fences_8);
+        function pop_Taps_9(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -723,11 +636,11 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Taps_18_0(feature) {
+        function style_Taps_9_0(feature) {
             switch(String(feature.properties['Type'])) {
                 case 'Hozelock Reel':
                     return {
-                pane: 'pane_Taps_18',
+                pane: 'pane_Taps_9',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -743,7 +656,7 @@
                     break;
                 case 'Lever':
                     return {
-                pane: 'pane_Taps_18',
+                pane: 'pane_Taps_9',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -759,7 +672,7 @@
                     break;
                 case 'Normal':
                     return {
-                pane: 'pane_Taps_18',
+                pane: 'pane_Taps_9',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -775,7 +688,7 @@
                     break;
                 case 'TBC':
                     return {
-                pane: 'pane_Taps_18',
+                pane: 'pane_Taps_9',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -791,7 +704,7 @@
                     break;
                 default:
                     return {
-                pane: 'pane_Taps_18',
+                pane: 'pane_Taps_9',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -807,27 +720,27 @@
                     break;
             }
         }
-        map.createPane('pane_Taps_18');
-        map.getPane('pane_Taps_18').style.zIndex = 418;
-        map.getPane('pane_Taps_18').style['mix-blend-mode'] = 'normal';
-        var layer_Taps_18 = new L.geoJson(json_Taps_18, {
+        map.createPane('pane_Taps_9');
+        map.getPane('pane_Taps_9').style.zIndex = 409;
+        map.getPane('pane_Taps_9').style['mix-blend-mode'] = 'normal';
+        var layer_Taps_9 = new L.geoJson(json_Taps_9, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Taps_18',
-            layerName: 'layer_Taps_18',
-            pane: 'pane_Taps_18',
-            onEachFeature: pop_Taps_18,
+            dataVar: 'json_Taps_9',
+            layerName: 'layer_Taps_9',
+            pane: 'pane_Taps_9',
+            onEachFeature: pop_Taps_9,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Taps_18_0(feature));
+                return L.circleMarker(latlng, style_Taps_9_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Taps_18);
-        map.addLayer(layer_Taps_18);
-        function pop_Pipes_19(feature, layer) {
+        bounds_group.addLayer(layer_Taps_9);
+        map.addLayer(layer_Taps_9);
+        function pop_Pipes_10(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -855,9 +768,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Pipes_19_0() {
+        function style_Pipes_10_0() {
             return {
-                pane: 'pane_Pipes_19',
+                pane: 'pane_Pipes_10',
                 opacity: 1,
                 color: 'rgba(234,122,17,1.0)',
                 dashArray: '',
@@ -868,21 +781,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Pipes_19');
-        map.getPane('pane_Pipes_19').style.zIndex = 419;
-        map.getPane('pane_Pipes_19').style['mix-blend-mode'] = 'normal';
-        var layer_Pipes_19 = new L.geoJson(json_Pipes_19, {
+        map.createPane('pane_Pipes_10');
+        map.getPane('pane_Pipes_10').style.zIndex = 410;
+        map.getPane('pane_Pipes_10').style['mix-blend-mode'] = 'normal';
+        var layer_Pipes_10 = new L.geoJson(json_Pipes_10, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Pipes_19',
-            layerName: 'layer_Pipes_19',
-            pane: 'pane_Pipes_19',
-            onEachFeature: pop_Pipes_19,
-            style: style_Pipes_19_0,
+            dataVar: 'json_Pipes_10',
+            layerName: 'layer_Pipes_10',
+            pane: 'pane_Pipes_10',
+            onEachFeature: pop_Pipes_10,
+            style: style_Pipes_10_0,
         });
-        bounds_group.addLayer(layer_Pipes_19);
-        map.addLayer(layer_Pipes_19);
-        function pop_Manholes_20(feature, layer) {
+        bounds_group.addLayer(layer_Pipes_10);
+        map.addLayer(layer_Pipes_10);
+        function pop_Manholes_11(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -903,7 +816,7 @@
                         <td colspan="2">' + (feature.properties['shape'] !== null ? autolinker.link(feature.properties['shape'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">type</th>\
+                        <th scope="row">MH Type</th>\
                         <td>' + (feature.properties['type'] !== null ? autolinker.link(feature.properties['type'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -919,11 +832,11 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Manholes_20_0(feature) {
+        function style_Manholes_11_0(feature) {
             switch(String(feature.properties['shape'])) {
                 case 'Rectangular':
                     return {
-                pane: 'pane_Manholes_20',
+                pane: 'pane_Manholes_11',
                 shape: 'square',
                 radius: 4.8,
                 opacity: 1,
@@ -940,7 +853,7 @@
                     break;
                 case 'Round':
                     return {
-                pane: 'pane_Manholes_20',
+                pane: 'pane_Manholes_11',
                 radius: 4.8,
                 opacity: 1,
                 color: 'rgba(128,17,25,1.0)',
@@ -956,7 +869,7 @@
                     break;
                 case 'Square':
                     return {
-                pane: 'pane_Manholes_20',
+                pane: 'pane_Manholes_11',
                 shape: 'square',
                 radius: 4.8,
                 opacity: 1,
@@ -973,7 +886,7 @@
                     break;
                 default:
                     return {
-                pane: 'pane_Manholes_20',
+                pane: 'pane_Manholes_11',
                 shape: 'square',
                 radius: 4.4,
                 opacity: 1,
@@ -990,27 +903,27 @@
                     break;
             }
         }
-        map.createPane('pane_Manholes_20');
-        map.getPane('pane_Manholes_20').style.zIndex = 420;
-        map.getPane('pane_Manholes_20').style['mix-blend-mode'] = 'normal';
-        var layer_Manholes_20 = new L.geoJson(json_Manholes_20, {
+        map.createPane('pane_Manholes_11');
+        map.getPane('pane_Manholes_11').style.zIndex = 411;
+        map.getPane('pane_Manholes_11').style['mix-blend-mode'] = 'normal';
+        var layer_Manholes_11 = new L.geoJson(json_Manholes_11, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Manholes_20',
-            layerName: 'layer_Manholes_20',
-            pane: 'pane_Manholes_20',
-            onEachFeature: pop_Manholes_20,
+            dataVar: 'json_Manholes_11',
+            layerName: 'layer_Manholes_11',
+            pane: 'pane_Manholes_11',
+            onEachFeature: pop_Manholes_11,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_Manholes_20_0(feature));
+                return L.shapeMarker(latlng, style_Manholes_11_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Manholes_20);
-        map.addLayer(layer_Manholes_20);
-        function pop_Lighting_21(feature, layer) {
+        bounds_group.addLayer(layer_Manholes_11);
+        map.addLayer(layer_Manholes_11);
+        function pop_Lighting_12(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -1037,7 +950,7 @@
                         <td>' + (feature.properties['Control'] !== null ? autolinker.link(feature.properties['Control'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">ControlLoc</th>\
+                        <th scope="row">Control Location</th>\
                         <td>' + (feature.properties['ControlLoc'] !== null ? autolinker.link(feature.properties['ControlLoc'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
@@ -1052,11 +965,11 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Lighting_21_0(feature) {
+        function style_Lighting_12_0(feature) {
             switch(String(feature.properties['Type'])) {
                 case 'Coach Light':
                     return {
-                pane: 'pane_Lighting_21',
+                pane: 'pane_Lighting_12',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1072,7 +985,7 @@
                     break;
                 case 'Flush Mounted Ceiling Light':
                     return {
-                pane: 'pane_Lighting_21',
+                pane: 'pane_Lighting_12',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1088,7 +1001,7 @@
                     break;
                 case 'Spotlight':
                     return {
-                pane: 'pane_Lighting_21',
+                pane: 'pane_Lighting_12',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1104,7 +1017,7 @@
                     break;
                 case 'Swan neck':
                     return {
-                pane: 'pane_Lighting_21',
+                pane: 'pane_Lighting_12',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1120,7 +1033,7 @@
                     break;
                 default:
                     return {
-                pane: 'pane_Lighting_21',
+                pane: 'pane_Lighting_12',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1136,27 +1049,27 @@
                     break;
             }
         }
-        map.createPane('pane_Lighting_21');
-        map.getPane('pane_Lighting_21').style.zIndex = 421;
-        map.getPane('pane_Lighting_21').style['mix-blend-mode'] = 'normal';
-        var layer_Lighting_21 = new L.geoJson(json_Lighting_21, {
+        map.createPane('pane_Lighting_12');
+        map.getPane('pane_Lighting_12').style.zIndex = 412;
+        map.getPane('pane_Lighting_12').style['mix-blend-mode'] = 'normal';
+        var layer_Lighting_12 = new L.geoJson(json_Lighting_12, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Lighting_21',
-            layerName: 'layer_Lighting_21',
-            pane: 'pane_Lighting_21',
-            onEachFeature: pop_Lighting_21,
+            dataVar: 'json_Lighting_12',
+            layerName: 'layer_Lighting_12',
+            pane: 'pane_Lighting_12',
+            onEachFeature: pop_Lighting_12,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Lighting_21_0(feature));
+                return L.circleMarker(latlng, style_Lighting_12_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Lighting_21);
-        map.addLayer(layer_Lighting_21);
-        function pop_Downpipe_22(feature, layer) {
+        bounds_group.addLayer(layer_Lighting_12);
+        map.addLayer(layer_Lighting_12);
+        function pop_Downpipe_13(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -1180,9 +1093,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Downpipe_22_0() {
+        function style_Downpipe_13_0() {
             return {
-                pane: 'pane_Downpipe_22',
+                pane: 'pane_Downpipe_13',
                 radius: 4.4,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1193,31 +1106,31 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(0,0,0,1.0)',
-                interactive: true,
+                interactive: false,
             }
         }
-        map.createPane('pane_Downpipe_22');
-        map.getPane('pane_Downpipe_22').style.zIndex = 422;
-        map.getPane('pane_Downpipe_22').style['mix-blend-mode'] = 'normal';
-        var layer_Downpipe_22 = new L.geoJson(json_Downpipe_22, {
+        map.createPane('pane_Downpipe_13');
+        map.getPane('pane_Downpipe_13').style.zIndex = 413;
+        map.getPane('pane_Downpipe_13').style['mix-blend-mode'] = 'normal';
+        var layer_Downpipe_13 = new L.geoJson(json_Downpipe_13, {
             attribution: '',
-            interactive: true,
-            dataVar: 'json_Downpipe_22',
-            layerName: 'layer_Downpipe_22',
-            pane: 'pane_Downpipe_22',
-            onEachFeature: pop_Downpipe_22,
+            interactive: false,
+            dataVar: 'json_Downpipe_13',
+            layerName: 'layer_Downpipe_13',
+            pane: 'pane_Downpipe_13',
+            onEachFeature: pop_Downpipe_13,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Downpipe_22_0(feature));
+                return L.circleMarker(latlng, style_Downpipe_13_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Downpipe_22);
-        map.addLayer(layer_Downpipe_22);
+        bounds_group.addLayer(layer_Downpipe_13);
+        map.addLayer(layer_Downpipe_13);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/Downpipe_22.png" /> Downpipe': layer_Downpipe_22,'Lighting<br /><table><tr><td style="text-align: center;"><img src="legend/Lighting_21_CoachLight0.png" /></td><td>Coach Light</td></tr><tr><td style="text-align: center;"><img src="legend/Lighting_21_FlushMountedCeilingLight1.png" /></td><td>Flush Mounted Ceiling Light</td></tr><tr><td style="text-align: center;"><img src="legend/Lighting_21_Spotlight2.png" /></td><td>Spotlight</td></tr><tr><td style="text-align: center;"><img src="legend/Lighting_21_Swanneck3.png" /></td><td>Swan neck</td></tr><tr><td style="text-align: center;"><img src="legend/Lighting_21_4.png" /></td><td></td></tr></table>': layer_Lighting_21,'Manholes<br /><table><tr><td style="text-align: center;"><img src="legend/Manholes_20_Rectangular0.png" /></td><td>Rectangular</td></tr><tr><td style="text-align: center;"><img src="legend/Manholes_20_Round1.png" /></td><td>Round</td></tr><tr><td style="text-align: center;"><img src="legend/Manholes_20_Square2.png" /></td><td>Square</td></tr><tr><td style="text-align: center;"><img src="legend/Manholes_20_3.png" /></td><td></td></tr></table>': layer_Manholes_20,'<img src="legend/Pipes_19.png" /> Pipes': layer_Pipes_19,'Taps<br /><table><tr><td style="text-align: center;"><img src="legend/Taps_18_HozelockReel0.png" /></td><td>Hozelock Reel</td></tr><tr><td style="text-align: center;"><img src="legend/Taps_18_Lever1.png" /></td><td>Lever</td></tr><tr><td style="text-align: center;"><img src="legend/Taps_18_Normal2.png" /></td><td>Normal</td></tr><tr><td style="text-align: center;"><img src="legend/Taps_18_TBC3.png" /></td><td>TBC</td></tr><tr><td style="text-align: center;"><img src="legend/Taps_18_4.png" /></td><td></td></tr></table>': layer_Taps_18,'<img src="legend/Fences_17.png" /> Fences': layer_Fences_17,'<img src="legend/Grass_16.png" /> Grass': layer_Grass_16,'<img src="legend/Paving_15.png" /> Paving': layer_Paving_15,'<img src="legend/Pathways_14.png" /> Pathways': layer_Pathways_14,'RoofLines<br /><table><tr><td style="text-align: center;"><img src="legend/RoofLines_13_0.png" /></td><td></td></tr><tr><td style="text-align: center;"><img src="legend/RoofLines_13_DormWindowFlashing1.png" /></td><td>Dorm Window Flashing</td></tr><tr><td style="text-align: center;"><img src="legend/RoofLines_13_Fasciawithflashing2.png" /></td><td>Fascia with flashing</td></tr><tr><td style="text-align: center;"><img src="legend/RoofLines_13_Gable3.png" /></td><td>Gable</td></tr><tr><td style="text-align: center;"><img src="legend/RoofLines_13_GutterLine4.png" /></td><td>GutterLine</td></tr><tr><td style="text-align: center;"><img src="legend/RoofLines_13_Hip5.png" /></td><td>Hip</td></tr><tr><td style="text-align: center;"><img src="legend/RoofLines_13_Ridge6.png" /></td><td>Ridge</td></tr><tr><td style="text-align: center;"><img src="legend/RoofLines_13_Valley7.png" /></td><td>Valley</td></tr></table>': layer_RoofLines_13,'<img src="legend/BuildingsNG_12.png" /> BuildingsNG': layer_BuildingsNG_12,'<img src="legend/Garages_11.png" /> Garages': layer_Garages_11,'<img src="legend/Driveway_10.png" /> Driveway': layer_Driveway_10,"NCGoogle_modified": layer_NCGoogle_modified_9,"TM45NW": layer_TM45NW_8,"TM45SW": layer_TM45SW_7,"TM45SE": layer_TM45SE_6,"TM45NE": layer_TM45NE_5,"TM23NE": layer_TM23NE_4,"TM33NW": layer_TM33NW_3,"TM33NE": layer_TM33NE_2,"TM35SE": layer_TM35SE_1,"TM35NE": layer_TM35NE_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/Downpipe_13.png" /> Downpipe': layer_Downpipe_13,'Lighting<br /><table><tr><td style="text-align: center;"><img src="legend/Lighting_12_CoachLight0.png" /></td><td>Coach Light</td></tr><tr><td style="text-align: center;"><img src="legend/Lighting_12_FlushMountedCeilingLight1.png" /></td><td>Flush Mounted Ceiling Light</td></tr><tr><td style="text-align: center;"><img src="legend/Lighting_12_Spotlight2.png" /></td><td>Spotlight</td></tr><tr><td style="text-align: center;"><img src="legend/Lighting_12_Swanneck3.png" /></td><td>Swan neck</td></tr><tr><td style="text-align: center;"><img src="legend/Lighting_12_4.png" /></td><td></td></tr></table>': layer_Lighting_12,'Manholes<br /><table><tr><td style="text-align: center;"><img src="legend/Manholes_11_Rectangular0.png" /></td><td>Rectangular</td></tr><tr><td style="text-align: center;"><img src="legend/Manholes_11_Round1.png" /></td><td>Round</td></tr><tr><td style="text-align: center;"><img src="legend/Manholes_11_Square2.png" /></td><td>Square</td></tr><tr><td style="text-align: center;"><img src="legend/Manholes_11_3.png" /></td><td></td></tr></table>': layer_Manholes_11,'<img src="legend/Pipes_10.png" /> Pipes': layer_Pipes_10,'Taps<br /><table><tr><td style="text-align: center;"><img src="legend/Taps_9_HozelockReel0.png" /></td><td>Hozelock Reel</td></tr><tr><td style="text-align: center;"><img src="legend/Taps_9_Lever1.png" /></td><td>Lever</td></tr><tr><td style="text-align: center;"><img src="legend/Taps_9_Normal2.png" /></td><td>Normal</td></tr><tr><td style="text-align: center;"><img src="legend/Taps_9_TBC3.png" /></td><td>TBC</td></tr><tr><td style="text-align: center;"><img src="legend/Taps_9_4.png" /></td><td></td></tr></table>': layer_Taps_9,'<img src="legend/Fences_8.png" /> Fences': layer_Fences_8,'<img src="legend/Grass_7.png" /> Grass': layer_Grass_7,'<img src="legend/Paving_6.png" /> Paving': layer_Paving_6,'<img src="legend/Pathways_5.png" /> Pathways': layer_Pathways_5,'RoofLines<br /><table><tr><td style="text-align: center;"><img src="legend/RoofLines_4_0.png" /></td><td></td></tr><tr><td style="text-align: center;"><img src="legend/RoofLines_4_DormWindowFlashing1.png" /></td><td>Dorm Window Flashing</td></tr><tr><td style="text-align: center;"><img src="legend/RoofLines_4_Fasciawithflashing2.png" /></td><td>Fascia with flashing</td></tr><tr><td style="text-align: center;"><img src="legend/RoofLines_4_Gable3.png" /></td><td>Gable</td></tr><tr><td style="text-align: center;"><img src="legend/RoofLines_4_GutterLine4.png" /></td><td>GutterLine</td></tr><tr><td style="text-align: center;"><img src="legend/RoofLines_4_Hip5.png" /></td><td>Hip</td></tr><tr><td style="text-align: center;"><img src="legend/RoofLines_4_Ridge6.png" /></td><td>Ridge</td></tr><tr><td style="text-align: center;"><img src="legend/RoofLines_4_Valley7.png" /></td><td>Valley</td></tr></table>': layer_RoofLines_4,'<img src="legend/BuildingsNG_3.png" /> BuildingsNG': layer_BuildingsNG_3,'<img src="legend/Garages_2.png" /> Garages': layer_Garages_2,'<img src="legend/Driveway_1.png" /> Driveway': layer_Driveway_1,"NCGoogle_modified": layer_NCGoogle_modified_0,}).addTo(map);
         setBounds();
         L.ImageOverlay.include({
             getBounds: function () {
